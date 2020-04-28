@@ -4,7 +4,7 @@ function Header({onChangeSeason}) {
     return (
         <Fragment>
             <div>
-                <img src='' alt='titleImg' />
+                <img style={{maxWidth: "60px", height: 'auto'}} src={process.env.PUBLIC_URL + 'logo192.png'} alt='titleImg' />
                 <div style={{display: 'inline'}}>
                     <div style={{display: 'inline'}}>
                         <span onClick={onChangeSeason} value='winter'>Winter</span>

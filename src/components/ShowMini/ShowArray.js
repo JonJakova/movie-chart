@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import ShowMini from './ShowMini';
+import './ShowMini.css';
 
 function ShowArray({ showArray, onSelectShow }) {
     return (
         <Fragment>
-            <div>
+            <div style={{display: 'flex', flexWrap: 'wrap'}} className='show-mini'>
                 {showArray.map((unit, i) => {
                     return (
                         <ShowMini
