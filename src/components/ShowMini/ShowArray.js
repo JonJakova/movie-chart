@@ -3,14 +3,18 @@ import ShowMini from './ShowMini';
 import './ShowMini.css';
 
 function ShowArray({ showArray, onSelectShow }) {
+    console.log('from array comp', showArray);
+
     return (
         <Fragment>
-            <div style={{display: 'flex', flexWrap: 'wrap'}} className='show-mini'>
+            <div className='show-mini'>
                 {showArray.map((unit, i) => {
                     return (
                         <ShowMini
-                            key={showArray[i].id}
+                            key={showArray[i].name}
                             name={showArray[i].name}
+                            poster={showArray[i].poster}
+                            premiere={showArray[i].premiere}
                             onSelectShow={onSelectShow}
                         />
                     )
@@ -21,3 +25,4 @@ function ShowArray({ showArray, onSelectShow }) {
 }
 
 export default ShowArray;
+//showArray[i].premiere.substring(0,10)

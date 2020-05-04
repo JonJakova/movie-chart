@@ -1,4 +1,6 @@
-show-mini {
+.show-mini {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
 }

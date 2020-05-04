@@ -6,9 +6,9 @@ import './App.css';
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      
+      season: ''
     }
   }
 
@@ -22,25 +22,22 @@ class App extends Component {
   }
 
   onChangeSeason = (event) => {
+    this.setState({ season: event.target.innerText });
     //TODO stuff
-    console.log(event.target.value);
-
-    fetch('http://localhost:3002/seasons')
-      .then(resp => resp.json())
-      .then(data => console.log('from seasons'));
+    console.log('when clicked', event.target.innerText);
   }
 
-  render(){
+  render() {
     return (
       <Fragment>
         <header>
-          <Header onChangeSeason={this.onChangeSeason}/>
+          <Header onChangeSeason={this.onChangeSeason} />
         </header>
         <div>
-          <Paginator onChangePage={this.onChangePage}/> 
+          <Paginator onChangePage={this.onChangePage} />
         </div>
         <div>
-          <ShowList />
+          <ShowList season={this.state.season} />
         </div>
       </Fragment>
     )
