@@ -5,10 +5,8 @@ function ShowMini(props) {
     if (props.premiere) {
         return (
             <Fragment>
-                <div style={{padding: '2em'}} className='show-mini' onClick={props.onSelectShow} >
-                    <a className="db center mw5 tc black link dim"
-                        title={props.name}
-                        href="https://youtube.com">
+                <div data-id={props.id} className='show-mini' onClick={props.onSelectShow} >
+                    <div className="db center mw5 tc black link dim" title={props.name}>
                         <img className="db ba b--black-10"
                             alt="Name of the show"
                             src={props.poster} />
@@ -18,17 +16,15 @@ function ShowMini(props) {
                             <dt className="clip">TBD what will show here</dt>
                             <dd className="ml0 gray">{props.premiere.substring(0,10)}</dd>
                         </dl>
-                    </a>
+                    </div>
                 </div>
             </Fragment>
         );
     } else {
         return (
             <Fragment>
-                <div style={{padding: '2em'}} className='show-mini' onClick={props.onSelectShow} >
-                    <a className="db center mw5 tc black link dim"
-                        title={props.name}
-                        href="https://youtube.com">
+                 <div data-id={props.id} className='show-mini' onClick={props.onSelectShow} >
+                    <div className="db center mw5 tc black link dim" title={props.name}>
                         <img className="db ba b--black-10"
                             alt="Name of the show"
                             src={props.poster} />
@@ -38,7 +34,7 @@ function ShowMini(props) {
                             <dt className="clip">TBD what will show here</dt>
                             <dd className="ml0 gray">TBD</dd>
                         </dl>
-                    </a>
+                    </div>
                 </div>
             </Fragment>
         );

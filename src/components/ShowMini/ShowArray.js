@@ -3,8 +3,6 @@ import ShowMini from './ShowMini';
 import './ShowMini.css';
 
 function ShowArray({ showArray, onSelectShow }) {
-    console.log('from array comp', showArray);
-
     return (
         <Fragment>
             <div className='show-mini'>
@@ -12,6 +10,7 @@ function ShowArray({ showArray, onSelectShow }) {
                     return (
                         <ShowMini
                             key={showArray[i].name}
+                            id={showArray[i].id}
                             name={showArray[i].name}
                             poster={showArray[i].poster}
                             premiere={showArray[i].premiere}
