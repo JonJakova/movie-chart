@@ -3,13 +3,23 @@ import React, { Fragment } from 'react';
 function Paginator(props) {
     return (
         <Fragment>
-            {/* <div className="mw8 center">
+            <div className="mw8 center">
                 <nav className="cf pa3 pa4-ns" data-name="pagination-next-prev">
-                    <a className="fl dib link dim black f6 f5-ns b pa2" href="#" title="Previous">&larr; Previous</a>
-                    <a className="fr dib link dim black f6 f5-ns b pa2" href="#" title="Next">Next &rarr;</a>
+                    <p className="fl dib link dim black f6 f5-ns b pa2" 
+                        onClick={props.changePage}
+                        data-id='left'
+                        title="Previous">
+                        &larr; Previous
+                    </p>
+                    
+                    <p className="fr dib link dim black f6 f5-ns b pa2" 
+                        onClick={props.changePage} 
+                        data-id='right' 
+                        title="Next">
+                        Next &rarr;
+                    </p>
                 </nav>
-            </div> */}
-            {/* <Pagination onChange={props.onChangePage} count={10} color="secondary" showFirstButton showLastButton/> */ }
+            </div>
         </Fragment>
     );
 }

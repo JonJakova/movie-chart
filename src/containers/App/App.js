@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../../components/Header/Header';
-import Paginator from '../../components/Paginator/Paginator';
 import ShowList from '../ShowList/ShowList';
 import './App.css';
 
@@ -11,14 +10,9 @@ class App extends Component {
     this.state = {
       yearsList: this._currentYearList(),
       season: '',
-      year: ''
+      year: '',
+      pageNumber: ''
     }
-  }
-
-  onChangePage = (event) => {
-    fetch('http://localhost:3002/page')
-      .then(resp => resp.json())
-      .then(data => console.log('from page'));
   }
 
   onChangeSeason = (event) => {
@@ -45,9 +39,6 @@ class App extends Component {
         <header>
           <Header yearsList={this.state.yearsList} onChangeSeason={this.onChangeSeason} onChangeYear={this.onChangeYear} />
         </header>
-        <div>
-          <Paginator onChangePage={this.onChangePage} />
-        </div>
         <div>
           <ShowList ref={this.showListElement} year={this.state.year} season={this.state.season}/>
         </div>

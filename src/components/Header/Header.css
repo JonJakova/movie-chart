@@ -66,3 +66,8 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .logo {
+    max-width: 4%;
+    max-height: auto;
+  }

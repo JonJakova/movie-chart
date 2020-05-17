@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
-import './Header.css'
+import './Header.css';
+import logo from './logo.png';
 
 function Header({ onChangeYear ,onChangeSeason, yearsList }) {
     return (
         <Fragment>
             <div>
                 <div className="navbar">
+                    <img className='logo' alt='logo' src={logo}/>
                     <div className="dropdown">
                         <button onClick={onChangeSeason} className="dropbtn">Winter
                             <i className="fa fa-caret-down"></i>

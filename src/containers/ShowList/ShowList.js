@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import ShowArray from '../../components/ShowMini/ShowArray';
 import Show from '../../components/Show/Show';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 class ShowList extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class ShowList extends Component {
     this.state = {
       showArray: [],
       currentShowId: '',
-      currentShow: {}
+      currentShow: {},
+      searchField: ''
     }
   }
 
@@ -28,18 +30,35 @@ class ShowList extends Component {
       () => this._changeDisplayedShow(this.state.currentShowId));
   }
 
+  onSearchShow = (event) => {
+    this.setState({searchField: event.target.value})
+  }
+
   render() {
     if (Object.keys(this.state.currentShow).length === 0) {
+      const {showArray, searchField} = this.state;
+      const filterList = showArray.filter(show => {
+        return show.name.toLowerCase().includes(searchField.toLowerCase());
+      });
       return (
         <Fragment>
-          <ShowArray onSelectShow={this.onSelectShow} showArray={this.state.showArray} />
+        <div>
+          <header>
+            <SearchBar searchChange={this.onSearchShow}/>
+          </header>
+        </div>
+          <div>
+            <ShowArray onSelectShow={this.onSelectShow} showArray={filterList} />
+          </div>
         </Fragment>
       )
     }
     else {
       return (
         <Fragment>
-          <Show currentShow={this.state.currentShow}/>
+          <div>
+            <Show currentShow={this.state.currentShow} />
+          </div>
         </Fragment>
       )
     }
@@ -77,8 +96,8 @@ class ShowList extends Component {
   }
 
   _resetDisplayedShow = () => {
-    this.setState({currentShow: {}},
-      () => console.log('after reset',this.state.currentShow))
+    this.setState({ currentShow: {} },
+      () => console.log('after reset', this.state.currentShow))
   }
 
   _setCurrentDate = () => {
@@ -99,8 +118,10 @@ class ShowList extends Component {
     }
   }
 
+  _setPaginationLength = () => {
+
+  }
+
 }
 
 export default ShowList;
-
-//Object.keys(currentShow) === 0 && currentShow === Object
