@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Header from '../../components/Header/Header';
 import ShowList from '../ShowList/ShowList';
 import './App.css';
+import Footer from '../../components/Footer/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +42,9 @@ class App extends Component {
         </header>
         <div>
           <ShowList ref={this.showListElement} year={this.state.year} season={this.state.season}/>
+        </div>
+        <div className='footerPlacement'>
+          <Footer/>
         </div>
       </Fragment>
     )

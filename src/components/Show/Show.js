@@ -14,8 +14,8 @@ function Show(props) {
                 <ShowInfo 
                     name={currentShow.name} 
                     tags={currentShow.tags} 
-                    premiere={currentShow.premiere} 
-                    season={currentShow.season}/>
+                    premiere={currentShow.premiere.substring(0, 10)} 
+                    season={currentShow.season.charAt(0).toUpperCase()+currentShow.season.slice(1)}/>
             </div>
             <div>
                 <ShowDescription description={currentShow.description}/>
