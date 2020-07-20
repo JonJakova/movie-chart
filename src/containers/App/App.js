@@ -43,9 +43,12 @@ class App extends Component {
         <div>
           <ShowList ref={this.showListElement} year={this.state.year} season={this.state.season}/>
         </div>
-        <div className='footerPlacement'>
+        <footer className='footer'>
+          <Footer />
+        </footer>
+        {/* <div className='footerPlacement'>
           <Footer/>
-        </div>
+        </div> */}
       </Fragment>
     )
   }

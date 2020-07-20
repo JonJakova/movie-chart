@@ -37,7 +37,7 @@ class ShowList extends Component {
   render() {
     if (Object.keys(this.state.currentShow).length === 0) {
       const {showArray, searchField} = this.state;
-      const filterList = showArray.filter(show => {
+      const filterList = showArray?.filter(show => {
         return show.name.toLowerCase().includes(searchField.toLowerCase());
       });
       return (
