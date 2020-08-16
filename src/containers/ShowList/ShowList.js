@@ -65,7 +65,7 @@ class ShowList extends Component {
   }
 
   _changeSeason = (currentSeason, year) => {
-    fetch('http://localhost:3002/seasons', {
+    fetch('https://moviechart-api.herokuapp.com/seasons', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -81,7 +81,7 @@ class ShowList extends Component {
   }
 
   _changeDisplayedShow = (id) => {
-    fetch('http://localhost:3002/show', {
+    fetch('https://moviechart-api.herokuapp.com/show', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
