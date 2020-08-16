@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/movie-chart-res
 /.pnp
 .pnp.js
 
