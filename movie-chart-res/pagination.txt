@@ -1,0 +1,9 @@
+select data from db where ....
+{app: state => page number } => {header: onClick(send page nr)  => {showList ref}}
+{showList display x number of entries }
+
+-----------------
+header.onClick() => app.ref => {showList.changePage(direction)}
+showList.state.pageNumber ==> update => re-render with array from x to y
+
+showList.state.pageArray = showArray in pageNumber

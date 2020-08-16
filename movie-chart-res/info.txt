@@ -1,0 +1,18 @@
+MOVIE-CHART
+
+:component list
+
+--header
+---tittle
+---seasons
+
+--second header
+---pagination
+
+--list
+---show-mini
+
+--show
+---poster
+---info
+----description

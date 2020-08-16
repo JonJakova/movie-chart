@@ -1,0 +1,2 @@
+scrape data from imdb every 1-3 days (puppeteer)
+insert into db

@@ -1,0 +1,68 @@
+select * from shows;
+
+select name from shows order by name desc;
+
+
+insert into shows (name)
+select 'test19'
+where 'test19' not in (select name from shows)
+
+
+insert into shows (name, season)
+select 'test19', 'fall'
+where 'test19' not in (select name from shows)
+
+
+
+
+db('shows').insert([
+        {
+            name: showData.title
+        },
+        {
+            tags: showData.genre_ids.join(' ')
+        },
+        {
+            premiere: showData.release_date
+        },
+        {
+            poster: 'https://image.tmdb.org/t/p/w500'+ showData.poster_path
+        },
+        {
+            description: showData.overview
+        },
+        {
+            season: getSeason(showData.release_date)
+        },
+        {
+            tmdb_id: showData.id
+        }
+    ]);
+
+db.raw(
+        `insert into shows (name, tags, premiere, poster, description, season, tmdb_id) 
+        select (${showData.tittle}), 
+        (${showData.genre_ids.join(' ')}), 
+        (${showData.release_date}), 
+        (${showData.poster_path}), 
+        (${showData.overview}), 
+        (${getSeason(showData.release_date)}), 
+        (${showData.id})
+        where (${showData.name}) not in (select name from shows)`
+    )
+    .then((resp) => console.log(resp))
+    .catch((err) => console.log(err));
+
+
+
+db.raw(
+        `insert into shows (name, tags, premiere, poster, description, season, tmdb_id) 
+        values (
+            ("${showData.title}"), 
+            (${showData.genre_ids.join(',')}), 
+            (${showData.release_date}), 
+            ("${poster}"), 
+            ("${showData.overview}"), 
+            (${getSeason(showData.release_date)}), 
+            (${showData.id})`
+    )

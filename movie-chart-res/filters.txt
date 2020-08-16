@@ -1,0 +1,25 @@
+pull tmdb from local db
+save data from api in local var
+check for same
+
+
+data => data.map(id => {
+      dataFromAPI.forEach(show => {
+        if (id.tmdb_id !== show.id) {
+          dataForDB.push(show);
+        }
+      });
+    }
+
+
+
+db.select('tmdb_id').from('shows')
+    .then(data => data.map(id => {
+      showList.forEach((show, i) => {
+        if (id.tmdb_id !== i.id) {
+          dataForDB.push(show);
+        }
+      });
+    }))
+    .then(loopInsert(db, dataForDB))
+    .catch( (err) => console.log(err))

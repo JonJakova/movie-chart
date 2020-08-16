@@ -1,0 +1,11 @@
+create table shows (
+	id serial primary key unique not null,
+	name varchar(300) unique not null,
+	tags varchar(300),
+	premiere date,
+	tba bool
+);
+
+alter table shows
+	add poster varchar(500),
+	add description varchar(1000);
